@@ -5,7 +5,7 @@ Connection between a client and a server and transmission of packets UDP with IP
 and must be reliable : resist to losses, corruption and reordonnancy.
 
 @Language : C
-@Authors :
 
+@Authors :
 	-Edouard Chatzopoulos - 3740 16 00
 	-Benoît Michel - 2397 16 00
