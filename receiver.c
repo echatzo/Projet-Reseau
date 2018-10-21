@@ -74,16 +74,23 @@ int main(int argc, char *argv[])
    //looks for the port number
    port = atoi(argv[optind+1]);
    //check if the port and host are absent
-   if(!host) fprintf(stderr, "Sender is NULL\n");
+   if(!host) fprintf(stderr, "Hostname is NULL\n");
 
     if(!port) fprintf(stderr, "Port is 0\n");
 
-    struct sockaddr_in6 dst_addr;
+    struct sockaddr_in6 src_addr;
     ra = real_address(host,&dst_addr);
     if (ra){
-      fprintf(stderr, "Cannot resolve the sender's name %s : %s\n",sender,err);
-}
-}
+      fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
+    }
+    int sfd = create_socket(&src_addr, port,NULL, -1);
+    if (sfd > 0 && wait_for_client(sfd) < 0) {
+      fprintf(stderr, "Could not connect the socket.\n");
+      close(sfd);
+      free(queue);
+      return EXIT_FAILURE;
+    }
+  }
 
     // TO DO
 
