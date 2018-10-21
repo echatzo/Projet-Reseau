@@ -30,51 +30,69 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Too few arguments\n Correct usage :\n $ sender [-f] [filename] <hostname> <port>\n");
 		return 0;
 	}
+ else
+ {
+    int opt;
+    char *fichier;
+    char *host;
+    int port;
+    uint8_t filelinked=0; //is a file already specified
+    while ((opt = getopt(argc, argv, "f:")) != -1) {
+      switch (opt){
 
-  int opt;
-  char *fichier;
-  char *host;
-  int port;
-  uint8_t filelinked=0; //is a file already specified
-  while ((opt = getopt(argc, argv, "f:")) != -1) {
-    switch (opt){
+        //looks for a specified file
+        case 'f':
+        fichier=optarg;
+        if (filelinked==1){
+          fprintf(stderr, "A file is already specified");
+          exit(EXIT_FAILURE);
+        }
+        else if(isavalidfile(fichier)<0)
+        {
+          fprintf(stderr, "Not a valid file");
+          exit(EXIT_FAILURE);
+        }
+        else
+        {
+          filelinked==1;
+          break;
+        }
 
-      //looks for a specified file
-      case 'f':
-      fichier=optarg;
-      if (filelinked==1){
-        fprintf(stderr, "A file is already specified");
+        //looks for unknown arguments
+        case '?':
+        fprintf(stderr, "Unknown argument");
         exit(EXIT_FAILURE);
-      }
-      else if(isavalidfile(fichier)<0)
-      {
-        fprintf(stderr, "Not a valid file");
-        exit(EXIT_FAILURE);
-      }
-      else
-      {
-        filelinked==1;
         break;
       }
+   }
+   if(strstr(argv[optind], "::") != NULL){
+   }
+   else{
+     host = argv[optind];
+   }
+   //looks for the port number
+   port = atoi(argv[optind+1]);
+   //check if the port and host are absent
+   if(!host) fprintf(stderr, "Hostname is NULL\n");
 
-      //looks for unknown arguments
-      case '?':
-      fprintf(stderr, "Unknown argument");
-      exit(EXIT_FAILURE);
-      break;
+    if(!port) fprintf(stderr, "Port is 0\n");
+
+    struct sockaddr_in6 src_addr;
+    ra = real_address(host,&dst_addr);
+    if (ra){
+      fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
     }
- }
-if(strstr(argv[optind], "::") != NULL){
+    //creation of the socket
+    int sfd = create_socket(&src_addr, port,NULL, -1);
+    if (sfd > 0 && wait_for_client(sfd) < 0) {
+      fprintf(stderr, "Could not connect the socket.\n");
+      close(sfd);
+      free(queue);
+      return EXIT_FAILURE;
+    }
+  }
+}
 
-}
-else{
-  host = argv[optind];
-}
-//looks for the port number
-port = atoi(argv[optind+1]);
- }
-
-}
   //checks if the file is valid
   int isavalidfile(char *file){
     int fd=fopen(file, "r")
@@ -85,4 +103,3 @@ port = atoi(argv[optind+1]);
     }
     return 0;
   }
-}
