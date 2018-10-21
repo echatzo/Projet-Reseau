@@ -88,7 +88,6 @@ int main(int argc, char *argv[])
     if (sfd > 0 && wait_for_client(sfd) < 0) {
       fprintf(stderr, "Could not connect the socket.\n");
       close(sfd);
-      free(queue);
       return EXIT_FAILURE;
     }
   }
