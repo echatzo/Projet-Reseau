@@ -30,38 +30,43 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Too few arguments\n Correct usage :\n $ sender [-f] [filename] <hostname> <port>\n");
 		return 0;
 	}
-    // TO DO
-    int opt;
-    char *fichier;
-    uint8_t filelinked=0;
-     while ((opt = getopt(argc, argv, "f:")) != -1) {
-       switch (opt){
-           case 'f':
-               if (filelinked==1){
-                 fprintf(stderr, "A file is already specified");
-                 exit(EXIT_FAILURE);
-               }
-               fichier=optarg;
-               if(isavalidfile(fichier)<0){
-                 fprintf(stderr, "Not a valid file");
-                 exit(EXIT_FAILURE);
-               }
-               else{
-                   filelinked==1;
-                   break;
-               }
 
-           case '?':
-               fprintf(stderr, "Unknown argument");
-               exit(EXIT_FAILURE);
-               break;
-       }
+  int opt;
+  char *fichier;
+  uint8_t filelinked=0; //is a file already specified
+  while ((opt = getopt(argc, argv, "f:")) != -1) {
+    switch (opt){
+
+      //looks for a specified file
+      case 'f':
+      if (filelinked==1){
+        fprintf(stderr, "A file is already specified");
+        exit(EXIT_FAILURE);
+      }
+      fichier=optarg;
+      if(isavalidfile(fichier)<0)
+      {
+        fprintf(stderr, "Not a valid file");
+        exit(EXIT_FAILURE);
+      }
+      else
+      {
+        filelinked==1;
+        break;
+      }
+
+      //looks for unknown arguments
+      case '?':
+      fprintf(stderr, "Unknown argument");
+      exit(EXIT_FAILURE);
+      break;
+    }
  }
+ /*
  if (optind!=argc){
      precision = (int) strtod(argv[optind], NULL);
  }
- fprintf(stdout, "%.*f\n", precision, val);
- exit(EXIT_SUCCESS);
+ */
 }
 
   int isavalidfile(char *file){
