@@ -31,8 +31,53 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Too few arguments\n Correct usage :\n $ receiver [-f] [filename] <hostname> <port>\n");
 		return 0;
 	}
+  else
+  {
+    int opt;
+    char *fichier;
+    uint8_t filelinked=0; //is a file already specified
+    while ((opt = getopt(argc, argv, "f:")) != -1) {
+      switch (opt){
 
-    // TO DO
+        //looks for a specified file
+        case 'f':
+        if (filelinked==1){
+          fprintf(stderr, "A file is already specified");
+          exit(EXIT_FAILURE);
+        }
+        fichier=optarg;
+        if(isavalidfile(fichier)<0)
+        {
+          fprintf(stderr, "Not a valid file");
+          exit(EXIT_FAILURE);
+        }
+        else
+        {
+          filelinked==1;
+          break;
+        }
+
+        //looks for unknown arguments
+        case '?':
+        fprintf(stderr, "Unknown argument");
+        exit(EXIT_FAILURE);
+        break;
+      }
+   }
 }
 
-// Helpful functions
+    // TO DO
+
+}
+
+//checks if the file is valid
+int isavalidfile(char *file){
+  int fd=fopen(file, "r")
+  if(fd>0){
+    if(fclose(fd)>0){
+      return 1;
+    }
+  }
+  return 0;
+}
+}

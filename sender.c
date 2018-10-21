@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
  }
  */
 }
-
+  //checks if the file is valid
   int isavalidfile(char *file){
     int fd=fopen(file, "r")
     if(fd>0){
