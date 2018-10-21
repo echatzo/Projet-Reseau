@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
   int opt;
   char *fichier;
-  char *hostname;
+  char *host;
   int port;
   uint8_t filelinked=0; //is a file already specified
   while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -68,7 +68,7 @@ if(strstr(argv[optind], "::") != NULL){
 
 }
 else{
-  hostname = argv[optind];
+  host = argv[optind];
 }
 //looks for the port number
 port = atoi(argv[optind+1]);

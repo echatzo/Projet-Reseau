@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
   {
     int opt;
     char *fichier;
-    char *hostname;
+    char *host;
     int port;
     uint8_t filelinked=0; //is a file already specified
     while ((opt = getopt(argc, argv, "f:")) != -1) {
@@ -69,10 +69,20 @@ int main(int argc, char *argv[])
    if(strstr(argv[optind], "::") != NULL){
    }
    else{
-     hostname = argv[optind];
+     host = argv[optind];
    }
    //looks for the port number
    port = atoi(argv[optind+1]);
+   //check if the port and host are absent
+   if(!host) fprintf(stderr, "Sender is NULL\n");
+
+    if(!port) fprintf(stderr, "Port is 0\n");
+
+    struct sockaddr_in6 dst_addr;
+    ra = real_address(host,&dst_addr);
+    if (ra){
+      fprintf(stderr, "Cannot resolve the sender's name %s : %s\n",sender,err);
+}
 }
 
     // TO DO
