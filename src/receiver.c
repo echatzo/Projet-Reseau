@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
     if (ra){
       fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
     }
+    //creation of the socket
     int sfd = create_socket(&src_addr, port,NULL, -1);
     if (sfd > 0 && wait_for_client(sfd) < 0) {
       fprintf(stderr, "Could not connect the socket.\n");
