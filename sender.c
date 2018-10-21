@@ -31,6 +31,46 @@ int main(int argc, char *argv[])
 		return 0;
 	}
     // TO DO
+    int opt;
+    char *fichier;
+    uint8_t filelinked=0;
+     while ((opt = getopt(argc, argv, "f:")) != -1) {
+       switch (opt){
+           case 'f':
+               if (filelinked==1){
+                 fprintf(stderr, "A file is already specified");
+                 exit(EXIT_FAILURE);
+               }
+               fichier=optarg;
+               if(isavalidfile(fichier)<0){
+                 fprintf(stderr, "Not a valid file");
+                 exit(EXIT_FAILURE);
+               }
+               else{
+                   filelinked==1;
+                   break;
+               }
+
+           case '?':
+               fprintf(stderr, "Unknown argument");
+               exit(EXIT_FAILURE);
+               break;
+       }
+ }
+ if (optind!=argc){
+     precision = (int) strtod(argv[optind], NULL);
+ }
+ fprintf(stdout, "%.*f\n", precision, val);
+ exit(EXIT_SUCCESS);
 }
 
-// Helpful functions
+  int isavalidfile(char *file){
+    int fd=fopen(file, "r")
+    if(fd>0){
+      if(fclose(fd)>0){
+        return 1;
+      }
+    }
+    return 0;
+  }
+}
