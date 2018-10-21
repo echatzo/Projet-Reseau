@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 
   int opt;
   char *fichier;
+  char *hostname;
+  int port;
   uint8_t filelinked=0; //is a file already specified
   while ((opt = getopt(argc, argv, "f:")) != -1) {
     switch (opt){
@@ -62,11 +64,16 @@ int main(int argc, char *argv[])
       break;
     }
  }
- /*
- if (optind!=argc){
-     precision = (int) strtod(argv[optind], NULL);
+if(strstr(argv[optind], "::") != NULL){
+  
+}
+else{
+  hostname = argv[optind];
+}
+
+port = (int) strtod(argv[optind+1], NULL);
  }
- */
+
 }
   //checks if the file is valid
   int isavalidfile(char *file){
