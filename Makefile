@@ -1,13 +1,20 @@
 CC = gcc -Wall -g
 
-all:	main
+all:	sender
+		  receiver
 	    make clean
 
-main:	main.o
-			$(CC)	-o	main	main.o	-lz
+receiver:	receiver.o
+			$(CC)	-o	receiver	receiver.o	-lz
 
-main.o:	main.c
-				$(CC)	-c	main.c	-lz
+receiver.o:	receiver.c
+				$(CC)	-c	src/receiver.c	-lz
+
+sender:	sender.o
+				$(CC)	-o	receiver	receiver.o	-lz
+
+sender.o:	sender.c
+				$(CC)	-c	src/sender.c	-lz
 
 clean:
 			rm	-rf	.o
