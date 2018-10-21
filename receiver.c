@@ -71,8 +71,8 @@ int main(int argc, char *argv[])
    else{
      hostname = argv[optind];
    }
-
-   port = (int) strtod(argv[optind+1], NULL);
+   //looks for the port number
+   port = atoi(argv[optind+1]);
 }
 
     // TO DO
