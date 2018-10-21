@@ -1,0 +1,285 @@
+commit 3d1e3285778dec2c25d21a2ee7f36e836c12fb03
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Mon Oct 22 01:39:10 2018 +0200
+
+    git
+
+ .gitignore  |  36 ------------------------------------
+ rapport.pdf | Bin 0 -> 62151 bytes
+ 2 files changed, 36 deletions(-)
+
+commit c13d1f3ff18f837a7ef56695596cde9a6fb13d47
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Mon Oct 22 00:46:04 2018 +0200
+
+    Makefile
+
+ Makefile | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+
+commit 66093d3a2c10f10a697d4284f7fb036b79419fa3
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Mon Oct 22 00:22:34 2018 +0200
+
+    back
+
+ src/sender.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit e6f49df33c37d7681921b5fb4ae9747d915a7193
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Mon Oct 22 00:21:10 2018 +0200
+
+    sender
+
+ src/receiver.c | 1 -
+ src/sender.c   | 4 +++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 65de87d90e1e2e78978455291584f7357baed953
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 23:21:23 2018 +0200
+
+    .
+
+ src/receiver.c | 2 +-
+ src/sender.c   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 73315f79de113b89b1181ac7e09be63395bd52e0
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 23:16:02 2018 +0200
+
+    formating
+
+ src/sender.c | 91 ++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 54 insertions(+), 37 deletions(-)
+
+commit 4750499022c3d9a82db4a9b0157886730603502d
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 23:05:11 2018 +0200
+
+    not much
+
+ src/receiver.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 60272a668bcca317423ccb0d021e5f83a430aed7
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 22:51:34 2018 +0200
+
+    test repo
+
+ data.dat => tests/data.dat | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 745e88fec93e8890e3ebdb4e838a254cf2dce3b7
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 22:48:20 2018 +0200
+
+    reorganisation
+
+ create_socket.c => src/create_socket.c       | 0
+ create_socket.h => src/create_socket.h       | 0
+ packet_implem.c => src/packet_implem.c       | 0
+ packet_interface.h => src/packet_interface.h | 0
+ read_write_loop.c => src/read_write_loop.c   | 0
+ read_write_loop.h => src/read_write_loop.h   | 0
+ real_address.c => src/real_address.c         | 0
+ real_address.h => src/real_address.h         | 0
+ receiver.c => src/receiver.c                 | 0
+ sender.c => src/sender.c                     | 0
+ wait_for_client.c => src/wait_for_client.c   | 0
+ wait_for_client.h => src/wait_for_client.h   | 0
+ 12 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 59cbc4eb08b70d5b7318075b1c76957d135367b7
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 22:37:01 2018 +0200
+
+    Create socket in receiver
+
+ receiver.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+
+commit 304d7606db4fbd01528e3a0965ff76afa41093e0
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 21:55:20 2018 +0200
+
+    real address in receiver
+
+ receiver.c | 14 ++++++++++++--
+ sender.c   |  4 ++--
+ 2 files changed, 14 insertions(+), 4 deletions(-)
+
+commit bbdeb509d2ae712da4ee55f94168395f31b7d55d
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 21:45:08 2018 +0200
+
+    minor change
+
+ receiver.c | 4 ++--
+ sender.c   | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 1a6d25ab552d99c12f22b37fc026997d392718da
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 21:34:59 2018 +0200
+
+    minor changes
+
+ receiver.c | 6 ++----
+ sender.c   | 6 +++---
+ 2 files changed, 5 insertions(+), 7 deletions(-)
+
+commit 8b70c589d495115522b44927a89c481d532ae8d7
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 19:47:35 2018 +0200
+
+    suite arguments
+
+ receiver.c | 11 +++++++++++
+ sender.c   | 15 +++++++++++----
+ 2 files changed, 22 insertions(+), 4 deletions(-)
+
+commit 19132fd60fa9b24e7a5ed417cf5507dc5bda7a68
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 19:01:59 2018 +0200
+
+    receiver.c arguments en ligne de commande début
+
+ receiver.c | 47 ++++++++++++++++++++++++++++++++++++++++++++++-
+ sender.c   |  2 +-
+ 2 files changed, 47 insertions(+), 2 deletions(-)
+
+commit ce8b615d5dc3ad749c76d7a260f9d8e99e66e189
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 18:58:05 2018 +0200
+
+    Auto stash before merge of "master" and "origin/master"
+
+ sender.c | 59 ++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 32 insertions(+), 27 deletions(-)
+
+commit e491b2f12e9653bf080310d32573baa5c369aed6
+Merge: 2d8e105 36f5c85
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 18:55:15 2018 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 36f5c8545092e14b81499578f9b0690b51df1649
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 21 18:41:26 2018 +0200
+
+    Sender.c : arguments en ligne de commandeg
+
+ sender.c | 42 +++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 1 deletion(-)
+
+commit 2d8e105618755eda392faab4e9be65ebf18914db
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Sat Oct 20 23:52:50 2018 +0200
+
+    Modif ReadMe
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 4ba354667164005b72dfa5aa6af60a3a8dcb6bc4
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Sat Oct 20 23:51:10 2018 +0200
+
+    Modif ReadMe
+
+ README.md | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+commit 47f967fa42ee47454075c2715792e7f794511b0e
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Sat Oct 20 23:44:49 2018 +0200
+
+    Modif MakeFile
+
+ README.md | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 7ccfe22fe0485fa0f852b8130c08627bcc6bfabb
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Sat Oct 20 23:43:41 2018 +0200
+
+    Modif MakeFile
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 747f202954eb141441ac1e056f0058895cee8c20
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Sat Oct 20 23:42:15 2018 +0200
+
+    Ajout Inginious + petits suppléments
+
+ Makefile           |  15 +++
+ README.md          |   9 +-
+ create_socket.c    |  55 +++++++++
+ create_socket.h    |  20 ++++
+ data.dat           |  22 ++++
+ packet_implem.c    | 331 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ packet_interface.h | 124 ++++++++++++++++++++
+ read_write_loop.c  |  99 ++++++++++++++++
+ read_write_loop.h  |  11 ++
+ real_address.c     |  33 ++++++
+ real_address.h     |  17 +++
+ receiver.c         |  14 ++-
+ sender.c           |  12 +-
+ wait_for_client.c  |  26 +++++
+ wait_for_client.h  |  13 +++
+ 15 files changed, 794 insertions(+), 7 deletions(-)
+
+commit f3b9b814a414485c35c63de45c7183cedaf84584
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Wed Oct 10 23:14:25 2018 +0200
+
+    Balbutiements
+
+ README.md  |  7 ++++++-
+ receiver.c | 26 ++++++++++++++++++++++++++
+ sender.c   | 26 ++++++++++++++++++++++++++
+ 3 files changed, 58 insertions(+), 1 deletion(-)
+
+commit 47190d84f250579ac8826437697ef93007a8d8a2
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Wed Oct 10 19:26:42 2018 +0200
+
+    gitignore
+
+ .gitignore | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
+
+commit 17d34469595c3529760e74d8a7dd8a549497e11b
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Wed Oct 10 19:24:41 2018 +0200
+
+    Adding a makefile
+
+ Makefile | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6a1e704bc88d78dabc451c21ac4f96a04e08d665
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Wed Oct 10 19:23:21 2018 +0200
+
+    project start
+
+ receiver.c | 0
+ sender.c   | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 0985d80589b59a953106eb608d5fba9d6dce951a
+Author: Unknown <edouard.chatzopoulos@gmail.com>
+Date:   Wed Oct 10 18:39:44 2018 +0200
+
+    Initial commit
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
