@@ -77,13 +77,13 @@ int main(int argc, char *argv[])
 
     if(!port) fprintf(stderr, "Port is 0\n");
 
-    struct sockaddr_in6 src_addr;
+    struct sockaddr_in6 dst_addr;
     ra = real_address(host,&dst_addr);
     if (ra){
       fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
     }
     //creation of the socket
-    int sfd = create_socket(&src_addr, port,NULL, -1);
+    int sfd = create_socket(&dst_addr, port,NULL, -1);
     if (sfd > 0 && wait_for_client(sfd) < 0) {
       fprintf(stderr, "Could not connect the socket.\n");
       close(sfd);

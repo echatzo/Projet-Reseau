@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
     if(!port) fprintf(stderr, "Port is 0\n");
 
     struct sockaddr_in6 src_addr;
-    ra = real_address(host,&dst_addr);
+    ra = real_address(host,&src_addr);
     if (ra){
       fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
     }
