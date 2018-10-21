@@ -89,9 +89,6 @@ int main(int argc, char *argv[])
       close(sfd);
       return EXIT_FAILURE;
     }
-    if (wait_for_client(sfd)<0){
-      fprintf(stderr, "Error with wait for client.\n");
-    }
   }
 }
 
