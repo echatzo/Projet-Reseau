@@ -43,12 +43,12 @@ int main(int argc, char *argv[])
 
         //looks for a specified file
         case 'f':
+        fichier=optarg;
         if (filelinked==1){
           fprintf(stderr, "A file is already specified");
           exit(EXIT_FAILURE);
         }
-        fichier=optarg;
-        if(isavalidfile(fichier)<0)
+        else if(isavalidfile(fichier)<0)
         {
           fprintf(stderr, "Not a valid file");
           exit(EXIT_FAILURE);
@@ -66,9 +66,7 @@ int main(int argc, char *argv[])
         break;
       }
    }
-
    if(strstr(argv[optind], "::") != NULL){
-     
    }
    else{
      hostname = argv[optind];
