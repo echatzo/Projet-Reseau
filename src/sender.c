@@ -37,13 +37,16 @@ int main(int argc, char *argv[])
     char *host;
     int port;
     uint8_t filelinked=0; //is a file already specified
-    while ((opt = getopt(argc, argv, "f:")) != -1) {
-      switch (opt){
+    while ((opt = getopt(argc, argv, "f:")) != -1)
+    {
+      switch (opt)
+      {
 
         //looks for a specified file
         case 'f':
         fichier=optarg;
-        if (filelinked==1){
+        if (filelinked==1)
+        {
           fprintf(stderr, "A file is already specified");
           exit(EXIT_FAILURE);
         }
