@@ -19,6 +19,10 @@
 #include <netdb.h>
 #include <sys/socket.h>
 
+#define PKT_MAX_PAYLOAD 512
+#define MSG_LEN 524
+#define WINDOW_MAX_SIZE 31
+
 /*
  * Main Function
  */
@@ -92,7 +96,75 @@ int main(int argc, char *argv[])
       close(sfd);
       return EXIT_FAILURE;
     }
+    //Création du buffer
+	 char *w_buffer = (char*) malloc(sizeof(char)*MSG_LEN);
+	 if(w_buffer == NULL)
+   {
+     fprint(stderr, "Erreur lors de l'initialisation de w_buffer.");
+     return 1;
+   }
+	 pkt_status_code pkt_err;
+
+   pkt_t_node **head = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
+	 if(list_head == NULL)
+   {
+     fprint(stderr, "Erreur lors de l'initialisation de head.");
+     return 1;
+   }
+	*head = NULL;
+
+	pkt_t_node **tail = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
+	if(list_tail == NULL)
+  {
+    fprint(stderr, "Erreur lors de l'initialisation de tail.");
+    return 1;
   }
+	*list_tail = NULL;
+
+  uint8_t current_seq = 0;
+  uint8_t current_window_size = WINDOW_MAX_SIZE;
+  int eof = 0;
+
+  while(!eof)
+  {
+    pkt_t *pkt = pkt_new();
+    pkt_err = pkt_decode(buffer, size_read, pkt);
+
+    if(pkt_stat == E_LENGTH)  fprintf(stderr, "decode : erreur avec le champ length\n");
+    if(pkt_stat == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
+    if(pkt_stat == E_NOHEADER) fprintf(stderr, "decode : pas de header\n");
+		if(pkt_stat == E_CRC) fprintf(stderr, "decode : erreur de CRC, : %d\n", seq_actual);
+		if(pkt_stat == E_WINDOW) fprintf(stderr, "decode : erreur avec le champ window\n");
+		if(pkt_stat == E_TYPE) fprintf(stderr, "decode : erreur avec le champ type\n");
+  }
+
+
+  //Fermeture du fichier
+	if(filelinked==1)
+  {
+		int close_err = close(fd);
+		if(close_err == -1)
+    {
+      fprintf(stderr, "Erreur lors de la fermeture du fichier.\n");
+      return -1;
+		}
+	}
+
+  free(head);
+	free(tail);
+	free(w_buffer);
+	free(host);
+	free(fichier);
+
+  //Fermeture du socket
+	int last_err = close(sfd);
+	if(last_err == -1)
+  {
+    fprintf(stderr, "Erreur lors de la fermeture du socket.\n");
+    return -1;
+  }
+
+	return 0;
 }
 
   //checks if the file is valid
