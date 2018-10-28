@@ -9,9 +9,9 @@ typedef struct pkt pkt_t;
 
 /* Types de paquets */
 typedef enum {
-	PTYPE_DATA = 1,
-	PTYPE_ACK = 2,
-	PTYPE_NACK = 3,
+								PTYPE_DATA = 1,
+								PTYPE_ACK = 2,
+								PTYPE_NACK = 3,
 } ptypes_t;
 
 /* Taille maximale permise pour le payload */
@@ -21,16 +21,16 @@ typedef enum {
 
 /* Valeur de retours des fonctions */
 typedef enum {
-	PKT_OK = 0,     /* Le paquet a ete traite avec succes */
-	E_TYPE,         /* Erreur liee au champs Type */
-	E_TR,           /* Erreur liee au champ TR */
-	E_LENGTH,       /* Erreur liee au champs Length  */
-	E_CRC,          /* CRC invalide */
-	E_WINDOW,       /* Erreur liee au champs Window */
-	E_SEQNUM,       /* Numero de sequence invalide */
-	E_NOMEM,        /* Pas assez de memoire */
-	E_NOHEADER,     /* Le paquet n'a pas de header (trop court) */
-	E_UNCONSISTENT, /* Le paquet est incoherent */
+								PKT_OK = 0, /* Le paquet a ete traite avec succes */
+								E_TYPE,  /* Erreur liee au champs Type */
+								E_TR,    /* Erreur liee au champ TR */
+								E_LENGTH, /* Erreur liee au champs Length  */
+								E_CRC,   /* CRC invalide */
+								E_WINDOW, /* Erreur liee au champs Window */
+								E_SEQNUM, /* Numero de sequence invalide */
+								E_NOMEM, /* Pas assez de memoire */
+								E_NOHEADER, /* Le paquet n'a pas de header (trop court) */
+								E_UNCONSISTENT, /* Le paquet est incoherent */
 } pkt_status_code;
 
 /* Alloue et initialise une struct pkt
@@ -114,8 +114,8 @@ pkt_status_code pkt_set_crc1     (pkt_t*, const uint32_t crc1);
  * @length: Le nombre d'octets composant le payload
  * @POST: pkt_get_length(pkt) == length */
 pkt_status_code pkt_set_payload(pkt_t*,
-                                const char *data,
-                                const uint16_t length);
+																																const char *data,
+																																const uint16_t length);
 /* Setter pour CRC2. Les valeurs fournies sont dans l'endianness
  * native de la machine!
  */
