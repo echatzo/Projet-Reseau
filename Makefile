@@ -1,7 +1,7 @@
 CC=gcc
 LFLAGS=-lz
 CFLAGS=-g -W -Wall -DNDEBUG
-SOURCES=$(wildcard /src/*.c)
+SOURCES=$(wildcard src/*.c)
 HEADERS=$(SOURCES:.c=.h)
 OBJ=$(SOURCES:.c=.o)
 
@@ -15,12 +15,12 @@ all:	sender
 
 receiver: $(OBJ)
 				@echo "Begin building receiver"
-				$(CC) -o $@ $^ $(LIBR) $(LFLAGS) $(CFLAGS)
+				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 sender: $(OBJ)
 				@echo "Begin building receiver"
-				$(CC) -o $@ $^ $(LIBR) $(LFLAGS) $(CFLAGS)
+				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 clean:
-				@echo "Accessing src for cleaning"
-				(cd src; rm	-rf	*.o)
+	@echo "Cleaning files"
+	rm -f *.o
