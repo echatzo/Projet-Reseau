@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
         pkt_status_code pkt_err;
 
         pkt_t_node **head = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
-        if(list_head == NULL)
+        if(head == NULL)
         {
                 fprint(stderr, "Erreur lors de l'initialisation de head.");
                 return 1;
@@ -142,12 +142,12 @@ int main(int argc, char *argv[])
         *head = NULL;
 
         pkt_t_node **tail = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
-        if(list_tail == NULL)
+        if(tail == NULL)
         {
                 fprint(stderr, "Erreur lors de l'initialisation de tail.");
                 return 1;
         }
-        *list_tail = NULL;
+        *tail = NULL;
 
         uint8_t current_seq = 0;
         uint8_t current_window_size = WINDOW_MAX_SIZE;
@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
         while(!eof)
         {
                 pkt_t *pkt = pkt_new();
-                pkt_err = pkt_decode(buffer, size_read, pkt);
+                pkt_err = pkt_decode(r_buffer, size_read, pkt);
 
                 if(pkt_stat == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
                 if(pkt_stat == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
@@ -201,8 +201,8 @@ int main(int argc, char *argv[])
 //checks if the file is valid
 int isavalidfile(char *file)
 {
-        int fd=fopen(file, "r")
-                if(fd>0)
+        int fd=fopen(file, "r");
+        if(fd>0)
         {
                 if(fclose(fd)>0)
                 {
