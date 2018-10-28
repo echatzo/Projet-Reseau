@@ -1,22 +1,23 @@
-CC = gcc -Wall -g
-
+BIN=main
+CC=gcc
+LFLAGS=-lz
+CFLAGS=-g -W -Wall -DNDEBUG
+SOURCES=$(wildcard /src/*.c)
+HEADERS=$(SOURCES:.c=.h)
+OBJ=$(SOURCES:.c=.o)
 all:	sender
-		receiver
-	    make clean
-
-receiver:	receiver.o
-			$(CC)	-o	receiver	receiver.o	-lz
-
-receiver.o:	receiver.c
-			$(CC)	-c	src/receiver.c	-lz
-
-sender:	sender.o
-		$(CC)	-o	receiver	receiver.o	-lz
-
-sender.o:	sender.c
-			$(CC)	-c	src/sender.c	-lz
+		  receiver
+%.o: %.c $(HEADER)
+				@echo "$^"
+				$(CC) $(LDFLAGS) -c $< $(CFLAGS)
+receiver: $(OBJ)
+				@echo "Begin building receiver"
+				$(CC) -o $@ $^ $(LIBR) $(LFLAGS) $(CFLAGS)
+				
+sender: $(OBJ)
+				@echo "Begin building receiver"
+				$(CC) -o $@ $^ $(LIBR) $(LFLAGS) $(CFLAGS)
 
 clean:
-		rm	-rf	.o
-
-.SILENT:
+								@echo "Accessing src for cleaning"
+					(cd src; rm	-rf	*.o)
