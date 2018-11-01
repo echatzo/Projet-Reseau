@@ -18,7 +18,7 @@ receiver: $(OBJ)
 				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 sender: $(OBJ)
-				@echo "Begin building receiver"
+				@echo "Begin building sender"
 				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 clean:
