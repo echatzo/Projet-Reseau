@@ -199,7 +199,7 @@ int main(int argc, char *argv[])
 
 
 
-//checks if the file is valid
+//Vérifie si la chaine de charactères correspond à un fichier valide
 int isavalidfile(char *file)
 {
         int fd=fopen(file, "r");
