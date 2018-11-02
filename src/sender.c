@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
                 if(!port) fprintf(stderr, "Port is 0\n");
 
                 struct sockaddr_in6 dst_addr;
-                ra = real_address(host,&dst_addr);
+                int ra = real_address(host,&dst_addr);
                 if (ra) {
                         fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
                 }
@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
                 pkt_status_code pkt_err;
 
                 pkt_t_node **head = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
-                if(list_head == NULL)
+                if(head == NULL)
                 {
                         fprint(stderr, "Erreur lors de l'initialisation de head.");
                         return 1;
@@ -115,12 +115,12 @@ int main(int argc, char *argv[])
                 *head = NULL;
 
                 pkt_t_node **tail = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
-                if(list_tail == NULL)
+                if(tail == NULL)
                 {
                         fprint(stderr, "Erreur lors de l'initialisation de tail.");
                         return 1;
                 }
-                *list_tail = NULL;
+                *tail = NULL;
 
                 uint8_t current_seq = 0;
                 uint8_t current_window_size = WINDOW_MAX_SIZE;
@@ -129,21 +129,21 @@ int main(int argc, char *argv[])
                 while(!eof)
                 {
                         pkt_t *pkt = pkt_new();
-                        pkt_err = pkt_decode(buffer, size_read, pkt);
+                        pkt_err = pkt_decode(w_buffer, sizeof(w_buffer), pkt);
 
-                        if(pkt_stat == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
-                        if(pkt_stat == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
-                        if(pkt_stat == E_NOHEADER) fprintf(stderr, "decode : pas de header\n");
-                        if(pkt_stat == E_CRC) fprintf(stderr, "decode : erreur de CRC, : %d\n", seq_actual);
-                        if(pkt_stat == E_WINDOW) fprintf(stderr, "decode : erreur avec le champ window\n");
-                        if(pkt_stat == E_TYPE) fprintf(stderr, "decode : erreur avec le champ type\n");
+                        if(pkt_err == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
+                        if(pkt_err == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
+                        if(pkt_err == E_NOHEADER) fprintf(stderr, "decode : pas de header\n");
+                        if(pkt_err == E_CRC) fprintf(stderr, "decode : erreur de CRC, : %d\n", current_seq);
+                        if(pkt_err == E_WINDOW) fprintf(stderr, "decode : erreur avec le champ window\n");
+                        if(pkt_err == E_TYPE) fprintf(stderr, "decode : erreur avec le champ type\n");
                 }
 
 
                 //Fermeture du fichier
                 if(filelinked==1)
                 {
-                        int close_err = close(fd);
+                        int close_err = close(sfd);
                         if(close_err == -1)
                         {
                                 fprintf(stderr, "Erreur lors de la fermeture du fichier.\n");
@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 
         //Vérifie si la chaine de charactères correspond à un fichier valide
         int isavalidfile(char *file){
-                int fd=fopen(file, "r")
+                int fd=fopen(file, "r");
                         if(fd>0) {
                         if(fclose(fd)>0) {
                                 return 1;
