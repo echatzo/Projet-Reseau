@@ -157,14 +157,14 @@ int main(int argc, char *argv[])
         while(!eof)
         {
                 pkt_t *pkt = pkt_new();
-                pkt_err = pkt_decode(r_buffer, size_read, pkt);
+                pkt_err = pkt_decode(r_buffer, 512, pkt);
 
-                if(pkt_stat == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
-                if(pkt_stat == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
-                if(pkt_stat == E_NOHEADER) fprintf(stderr, "decode : pas de header\n");
-                if(pkt_stat == E_CRC) fprintf(stderr, "decode : erreur de CRC, : %d\n", seq_actual);
-                if(pkt_stat == E_WINDOW) fprintf(stderr, "decode : erreur avec le champ window\n");
-                if(pkt_stat == E_TYPE) fprintf(stderr, "decode : erreur avec le champ type\n");
+                if(pkt_err == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
+                if(pkt_err == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
+                if(pkt_err == E_NOHEADER) fprintf(stderr, "decode : pas de header\n");
+                if(pkt_err == E_CRC) fprintf(stderr, "decode : erreur de CRC, : %d\n", current_seq);
+                if(pkt_err == E_WINDOW) fprintf(stderr, "decode : erreur avec le champ window\n");
+                if(pkt_err == E_TYPE) fprintf(stderr, "decode : erreur avec le champ type\n");
         }
 
 
