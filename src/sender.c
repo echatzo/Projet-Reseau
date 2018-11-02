@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
                                         fprintf(stderr, "A file is already specified");
                                         exit(EXIT_FAILURE);
                                 }
-                                else if(isavalidfile(fichier)<0)
+                                else if(isavalidfile((char *)fichier)<0)
                                 {
                                         fprintf(stderr, "Not a valid file");
                                         exit(EXIT_FAILURE);
@@ -168,14 +168,15 @@ int main(int argc, char *argv[])
                 return 0;
         }
 
-        //Vérifie si la chaine de charactères correspond à un fichier valide
-        int isavalidfile(char *file){
-                int fd=fopen(file, "r");
-                        if(fd>0) {
-                        if(fclose(fd)>0) {
-                                return 1;
-                        }
+    
+}
+//Vérifie si la chaine de charactères correspond à un fichier valide
+int isavalidfile(char *file){
+        int fd=fopen(file, "r");
+                if(fd>0) {
+                if(fclose(fd)>0) {
+                        return 1;
                 }
-                return 0;
         }
+        return 0;
 }

@@ -8,8 +8,7 @@ ROBJ=src/create_socket.o src/packet_implem.o src/read_write_loop.o src/real_addr
 SOBJ=src/create_socket.o src/packet_implem.o src/read_write_loop.o src/real_address.o src/sender.o src/wait_for_client.o
 
 
-all:	sender
-		  receiver
+all:	sender receiver
 
 src/%.o: %.c $(HEADER)
 				@echo "$^"
@@ -24,5 +23,5 @@ sender: $(SOBJ)
 				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 clean:
-	(cd src; rm -f *.o)
+	(cd src; rm -f *.o; cd ..; rm -f receiver; rm -f sender)
 	@echo "cleaning"

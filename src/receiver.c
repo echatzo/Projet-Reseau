@@ -29,7 +29,7 @@
  * Main Function
  */
 
-int isavalidfile(char *file);
+
 
 int main(int argc, char *argv[])
 {
@@ -197,16 +197,11 @@ int main(int argc, char *argv[])
 }
 
 
-
-
 //Vérifie si la chaine de charactères correspond à un fichier valide
-int isavalidfile(char *file)
-{
+int isavalidfile(char *file){
         int fd=fopen(file, "r");
-        if(fd>0)
-        {
-                if(fclose(fd)>0)
-                {
+                if(fd>0) {
+                if(fclose(fd)>0) {
                         return 1;
                 }
         }
