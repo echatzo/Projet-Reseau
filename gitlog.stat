@@ -1,3 +1,238 @@
+commit b48e0ac04984df7c48c04147ff7bd984f24af124
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 19:02:16 2018 +0100
+
+    Le programme compile!
+
+ Makefile       |  5 ++---
+ src/receiver.c | 13 ++++---------
+ src/sender.c   | 19 ++++++++++---------
+ 3 files changed, 16 insertions(+), 21 deletions(-)
+
+commit 8e08b3758ffa56a8ea778551b4c2ffbdf84b06f0
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 18:52:15 2018 +0100
+
+    makefile fonctionnel
+
+ Makefile | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+commit a122bfaacb7afbb9c8c7b85bbd2d3b898e620e0e
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 18:48:05 2018 +0100
+
+    tentative de correction
+
+ Makefile       |  6 +++---
+ src/receiver.c | 10 +++++-----
+ src/sender.c   |  6 +++---
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+commit 523c96e6f5cbccf16d28af5cb40ccb4dcfe91fb5
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 17:11:06 2018 +0100
+
+    dernières erreurs de compilation
+
+ src/sender.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c3abd6ec37a46936a3efec2ccaa5d6d2da4e6c82
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 16:43:58 2018 +0100
+
+    modifs
+
+ src/sender.c | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+commit 237f9d05b8e0110d5de704c36e0cdb62a663cb19
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 15:46:01 2018 +0100
+
+    .
+
+ src/receiver.c | 2 +-
+ src/sender.c   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 82f0547f06da86a368a78fa77116f82de229f0a6
+Merge: 8884ca6 d7ae4fc
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Fri Nov 2 11:42:42 2018 +0100
+
+    Modifs receiver
+
+commit 8884ca68528631266c1c846935d83d55ad80f7ce
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Fri Nov 2 11:41:07 2018 +0100
+
+    Modifs receiver
+
+ src/receiver.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+commit d7ae4fc942bc267ed703a85ca8f9719e5764b1e2
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 11:35:39 2018 +0100
+
+    sizeof read
+
+ src/receiver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit eaa3f1e470dacf7a6c187cce4d9bc589cf5131cb
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 11:20:25 2018 +0100
+
+    err to ra
+
+ src/receiver.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit ee14129a0080e2e4e21d686c629db5e4f3ed38f2
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 11:16:49 2018 +0100
+
+    include time.h
+
+ src/packet_interface.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 15acf47fd66b0ec44e313de6c8f10a83d9a2c4d2
+Merge: 06f52f5 e5d4673
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Fri Nov 2 11:13:07 2018 +0100
+
+    ajout pkt_t_node
+
+commit 06f52f58470dbc81bf9ab9ac3b07d43b7f3823e6
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Fri Nov 2 11:06:29 2018 +0100
+
+    Structure pkt_t_node
+
+ src/packet_interface.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit e5d4673dec55ba2c6e31c7f0a3aa11d6c320bfc0
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Fri Nov 2 09:50:12 2018 +0100
+
+    sender and receiver small corrections
+
+ src/receiver.c | 3 ++-
+ src/sender.c   | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+commit 7701377f484615cf54aaf23feb5afd327fc6e238
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Thu Nov 1 22:25:27 2018 +0100
+
+    Modif Makefile
+
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 96c6de90eb27611991b06aa43c85578ec667d5b3
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 19:34:34 2018 +0100
+
+    error correction
+
+ src/receiver.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit 6b4872af528ed0cf529285250cc1060dd4083cc8
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 18:03:11 2018 +0100
+
+    correction des indentations
+
+ src/create_socket.c    |  72 ++++----
+ src/packet_implem.c    | 464 ++++++++++++++++++++++++-------------------------
+ src/packet_interface.h |  30 ++--
+ src/read_write_loop.c  | 140 +++++++--------
+ src/real_address.c     |  36 ++--
+ src/receiver.c         | 342 ++++++++++++++++++------------------
+ src/sender.c           | 283 +++++++++++++++---------------
+ src/wait_for_client.c  |  30 ++--
+ 8 files changed, 699 insertions(+), 698 deletions(-)
+
+commit 4fb461d90979ba7cebc5e519700963c92ffabca2
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 17:42:27 2018 +0100
+
+    makefile
+
+ Makefile | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit 4d86482d8d645deb855d5c16e99bc1319217a0a5
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 14:39:34 2018 +0100
+
+    makefile
+
+ Makefile | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit cf6e3e09d8ae269f5c27e5c5cc9e90a5a22b2449
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 14:30:29 2018 +0100
+
+    suite makefile
+
+ Makefile | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+commit e26284199c50cf9839d131a9e3854317fbde5be2
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 14:29:46 2018 +0100
+
+    amelioration makefile
+
+ Makefile | 39 ++++++++++++++++++++-------------------
+ 1 file changed, 20 insertions(+), 19 deletions(-)
+
+commit b5c50f697ea3d5c2f45d215aaa539f5e10da777a
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Sun Oct 28 14:13:51 2018 +0100
+
+    sender début (inspiré du receiver, à modifier)
+
+ src/sender.c | 72 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 72 insertions(+)
+
+commit 6750fc1eb95c13dd6046aedcadc2ecfd7dcc8ca1
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Mon Oct 22 19:57:57 2018 +0200
+
+    Receiver
+
+ src/sender.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+commit df93b726cb29aea8c9327fe17c5143b096dcbeff
+Author: Benoît Michel <benoitmichel.98@gmail.com>
+Date:   Mon Oct 22 09:41:28 2018 +0200
+
+    Premier jet du receiver
+
+ Makefile       |  10 ++--
+ src/receiver.c | 180 +++++++++++++++++++++++++++++++++++++++++++++------------
+ 2 files changed, 147 insertions(+), 43 deletions(-)
+
+commit aaa085bd621d17aed15ccc711e84367267d93070
+Author: edouard <edouard.chatzopoulos@gmail.com>
+Date:   Mon Oct 22 01:49:42 2018 +0200
+
+    gitlog
+
+ gitlog.stat | 285 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 285 insertions(+)
+
 commit 3d1e3285778dec2c25d21a2ee7f36e836c12fb03
 Author: edouard <edouard.chatzopoulos@gmail.com>
 Date:   Mon Oct 22 01:39:10 2018 +0200
