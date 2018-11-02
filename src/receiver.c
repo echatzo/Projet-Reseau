@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
         while(!eof)
         {
                 pkt_t *pkt = pkt_new();
-                pkt_err = pkt_decode(r_buffer, size_read, pkt);
+                pkt_err = pkt_decode(r_buffer, sizeof(r_buffer), pkt);
 
                 if(pkt_stat == E_LENGTH) fprintf(stderr, "decode : erreur avec le champ length\n");
                 if(pkt_stat == E_UNCONSISTENT) fprintf(stderr, "decode : paquet inconsistent\n");
