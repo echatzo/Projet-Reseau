@@ -107,7 +107,7 @@ int main(int argc, char *argv[])
         const char *ra = real_address(host,&src_addr);
         if (ra)
         {
-                fprintf(stderr, "Cannot resolve the hostname %s : %s\n",host,err);
+                fprintf(stderr, "Cannot resolve the hostname %s : %s\n",host,ra);
                 return EXIT_FAILURE;
         }
 
@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
         //Fermeture du fichier
         if(filelinked==1)
         {
-                int close_err = close(fd);
+                int close_err = close(sfd);
                 if(close_err == -1)
                 {
                         fprintf(stderr, "Erreur lors de la fermeture du fichier.\n");
