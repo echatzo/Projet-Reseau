@@ -9,7 +9,7 @@ OBJ=$(SOURCES:.c=.o)
 all:	sender
 		  receiver
 
-%.o: %.c $(HEADER)
+src/%.o: %.c $(HEADER)
 				@echo "$^"
 				$(CC) $(LFLAGS) -c $< $(CFLAGS)
 
@@ -22,5 +22,5 @@ sender: $(OBJ)
 				$(CC) -o $@ $^ $(LFLAGS) $(CFLAGS)
 
 clean:
-	@echo "Cleaning files"
-	rm -f *.o
+	(cd src; rm -f *.o)
+	@echo "cleaning"

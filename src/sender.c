@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
                 char *w_buffer = (char*) malloc(sizeof(char)*MSG_LEN);
                 if(w_buffer == NULL)
                 {
-                        fprint(stderr, "Erreur lors de l'initialisation de w_buffer.");
+                        fprintf(stderr, "Erreur lors de l'initialisation de w_buffer.");
                         return 1;
                 }
                 pkt_status_code pkt_err;
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
                 pkt_t_node **head = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
                 if(head == NULL)
                 {
-                        fprint(stderr, "Erreur lors de l'initialisation de head.");
+                        fprintf(stderr, "Erreur lors de l'initialisation de head.");
                         return 1;
                 }
                 *head = NULL;
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
                 pkt_t_node **tail = (pkt_t_node **) malloc(sizeof(pkt_t_node**));
                 if(tail == NULL)
                 {
-                        fprint(stderr, "Erreur lors de l'initialisation de tail.");
+                        fprintf(stderr, "Erreur lors de l'initialisation de tail.");
                         return 1;
                 }
                 *tail = NULL;
