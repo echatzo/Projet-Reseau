@@ -14,6 +14,13 @@ typedef enum {
 								PTYPE_NACK = 3,
 } ptypes_t;
 
+/* Nodes de pkt*/
+typedef struct pkt_node {
+		pkt_t *pkt;
+  	struct pkt_node *next;
+  	clock_t stime;
+} pkt_t_node;
+
 /* Taille maximale permise pour le payload */
 #define MAX_PAYLOAD_SIZE 512
 /* Taille maximale de Window */
