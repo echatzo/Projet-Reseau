@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
                 struct sockaddr_in6 dst_addr;
                 int ra = real_address(host,&dst_addr);
                 if (ra) {
-                        fprintf(stderr, "Cannot resolve the hostname %s : %s\n",sender,err);
+                        fprintf(stderr, "Cannot resolve the hostname %s : %s\n",host,ra);
                 }
                 //creation of the socket
                 int sfd = create_socket(&dst_addr, port,NULL, -1);
