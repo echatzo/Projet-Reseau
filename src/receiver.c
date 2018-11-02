@@ -19,6 +19,7 @@
 #include <sys/types.h>
 #include <netdb.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
 #define PKT_MAX_PAYLOAD 512
 #define MSG_LEN 524
@@ -76,7 +77,7 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                                filelinked==1;
+                                filelinked=1;
                                 break;
                         }
 
